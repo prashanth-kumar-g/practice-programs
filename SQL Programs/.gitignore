@@ -1,0 +1,6 @@
+*.bak
+*.db
+*.mdb
+*.log
+*.save
+.vscode/

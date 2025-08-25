@@ -1,0 +1,14 @@
+*.pdf
+*.docx
+*.log
+*.save
+*.json
+*.md
+node_modules/
+.vscode/
+*.ico
+*.png
+*.json
+*.txt
+*.md
+*.svg

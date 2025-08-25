@@ -1,0 +1,8 @@
+<div class="gallery">
+  <% movies.forEach(movie => { %>
+    <div class="card <%= movie.rating > 8 ? 'highlight' : '' %>">
+      <h3><%= movie.title %></h3>
+      <p>Rating: <%= movie.rating %></p>
+    </div>
+  <% }) %>
+</div>

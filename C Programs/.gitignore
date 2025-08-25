@@ -1,0 +1,11 @@
+# Ignore compiled binaries
+*.exe
+*.o
+*.obj
+*.out
+*.save
+*.log
+.vscode/
+Debug/
+Release/
+build/

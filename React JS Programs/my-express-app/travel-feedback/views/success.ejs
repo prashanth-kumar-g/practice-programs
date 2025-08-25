@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Feedback Received</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Thank You!</h1>
+  <p><strong>Name:</strong> <%= name %></p>
+  <p><strong>Email:</strong> <%= email %></p>
+
+  <% if (screenshot) { %>
+    <p><strong>Uploaded Screenshot:</strong></p>
+    <img src="<%= screenshot %>" width="300" />
+  <% } else { %>
+    <p>No screenshot uploaded.</p>
+  <% } %>
+</body>
+</html>

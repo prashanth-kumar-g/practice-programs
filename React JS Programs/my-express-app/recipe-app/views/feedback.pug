@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title Feedback Form
+  body
+    h1 Feedback Form
+    form(action='/feedback', method='POST')
+      label(for='name') Name:
+      input(type='text', name='name', required)
+      br
+      label(for='message') Message:
+      textarea(name='message', rows='4', cols='40', required)
+      br
+      button(type='submit') Submit

@@ -1,0 +1,41 @@
+.newsletter-form { 
+max-width: 400px; 
+padding: 20px; 
+border: 2px solid #ccc; 
+border-radius: 8px; 
+font-family: Arial, sans-serif; 
+background-color: #f9f9f9; 
+} 
+.newsletter-form h2 { 
+text-align: center; 
+margin-bottom: 20px; 
+} 
+.newsletter-form label { 
+display: block; 
+margin-bottom: 10px; 
+} 
+.newsletter-form input { 
+    width: 100%; 
+padding: 8px; 
+margin-top: 4px; 
+margin-bottom: 16px; 
+border: 1px solid #aaa; 
+border-radius: 4px; 
+} 
+.newsletter-form button { 
+width: 100%; 
+padding: 10px; 
+background-color: #007bff; 
+border: none; 
+border-radius: 4px; 
+color: white; 
+font-size: 16px; 
+} 
+.newsletter-form button:hover { 
+background-color: #0056b3; 
+} 
+.thank-you { 
+text-align: center; 
+font-size: 18px; 
+color: green; 
+} 

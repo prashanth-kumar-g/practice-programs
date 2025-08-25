@@ -1,0 +1,28 @@
+# Root-level ignores
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Images & docs
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
+*.svg
+*.ico
+*.txt
+*.md
+*.pdf
+*.docx
+
+*.mp4
+
+# Logs
+*.log
+
+# OS generated
+Thumbs.db
+Desktop.ini
+.DS_Store

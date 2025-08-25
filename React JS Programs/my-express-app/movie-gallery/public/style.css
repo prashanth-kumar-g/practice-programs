@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.site-header,
+.site-footer {
+  background-color: #111;
+  color: white;
+  padding: 20px 0;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 30px;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 150px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.card.highlight {
+  border: 2px solid green;
+  background-color: #d0ffd8;
+}
+
+.card h3 {
+  margin: 0 0 10px;
+}

@@ -1,0 +1,18 @@
+/* ===================== GLOBAL STYLES ===================== */
+/* Resets and base styling for consistent cross-browser rendering */
+
+* {
+  box-sizing: border-box;  /* Includes padding/borders in element dimensions */
+  margin: 0;               /* Removes default margins */
+  padding: 0;              /* Removes default paddings */
+}
+
+/* ===================== MAIN BODY STYLING ===================== */
+/* Sets base typography and page background */
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;   /* Modern font stack */
+  background: #f0f4f8;                            /* Primary background color */
+  color: #2d3748;                 /* Primary text color */
+  line-height: 1.6;              /* Improved readability */
+  margin: 20px;                  /* Page margin */
+}

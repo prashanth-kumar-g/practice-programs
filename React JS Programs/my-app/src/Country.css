@@ -1,0 +1,14 @@
+.country-list-container { 
+    font-family: Arial, sans-serif; 
+    text-align: center; 
+    margin: 20px; 
+  } 
+  .country-list { 
+    list-style-type: none; 
+    padding: 0; 
+  } 
+  .country-item { 
+    font-size: 18px; 
+    color: #333; 
+    margin: 8px 0;
+  }

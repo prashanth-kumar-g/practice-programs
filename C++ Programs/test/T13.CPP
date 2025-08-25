@@ -1,0 +1,18 @@
+// program to print and find sum of the first n even natural numbers
+#include<iostream>
+
+int main()
+{
+ int n,i,sum=0;
+ clrscr();
+ cout<<"\nEnter the limit : ";
+ cin>>n;
+ cout<<"\n";
+ for(i=2;i<=n;i=i+2)
+ {
+  cout<<" + "<<i;
+  sum=sum+i;
+ }
+ cout<<" = "<<sum;
+ return 0;
+}

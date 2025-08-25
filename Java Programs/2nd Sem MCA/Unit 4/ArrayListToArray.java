@@ -1,0 +1,28 @@
+ // Convert an ArrayList into an array. 
+import java.util.*; 
+class ArrayListToArray { 
+  public static void main(String args[]) { 
+    // Create an array list. 
+    ArrayList<Integer> al = new ArrayList<Integer>(); 
+    // Add elements to the array list. 
+    al.add(1); 
+    al.add(2); 
+    al.add(3); 
+    al.add(4); 
+    System.out.println("Contents of al: " + al); 
+	
+    System.out.println("Contents of al: " + al.size()); 
+
+    System.out.println("Contents of al: " + al.getClass().getName()); 
+    // Get the array. 
+    Integer ia[] = new Integer[al.size()]; 
+	 
+    ia = al.toArray(ia); 
+ 
+ System.out.println("Contents of ia: " + ia.getClass().getName());
+    int sum = 0; 
+    // Sum the array. 
+    for(int i : ia) sum += i; 
+    System.out.println("Sum is: " + sum); 
+  } 
+}

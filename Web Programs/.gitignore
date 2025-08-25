@@ -1,0 +1,11 @@
+*.log
+*.save
+*.txt
+*.pdf
+*.docx
+*.mp4
+Documentation/
+.vscode/
+node_modules/
+dist/
+.env
