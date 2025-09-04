@@ -16,6 +16,7 @@ vector<int> twoSumBruteForce(vector<int>& nums, int target)
                 }
             }
         }
+
         return {};
 }
 
@@ -26,11 +27,14 @@ vector<int> twoSumTwoPointers(vector<int>& nums, int target)
         {
             arr_pair.push_back({nums[i],i});
         }
+
         sort(arr_pair.begin(), arr_pair.end());
+
         int left = 0, right = nums.size() - 1;
         while(left < right)
         {
             int sum = arr_pair[left].first + arr_pair[right].first;
+
             if(sum == target)
                 return {arr_pair[left].second, arr_pair[right].second};
             else if(sum < target)
@@ -38,29 +42,36 @@ vector<int> twoSumTwoPointers(vector<int>& nums, int target)
             else
                 right--;
         }
+
         return {};
 }
 
 vector<int> twoSumHashmap(vector<int>& nums, int target) 
 {
         unordered_map<int, int> mp;
+
         for(int i = 0; i < nums.size(); i++)
         {
             int complement = target - nums[i];
+
             if(mp.find(complement) != mp.end())
             {
                 return {mp[complement],i};
             }
+
             mp[nums[i]] = i;
         }
+
         return {};
 }
 
 int main()
 {
     int n, choice, target;
+
     vector<int> vect;
     vector<int> sol;
+
     while(1)
     {
         cout<<"\n-------------------------------------------------------------";

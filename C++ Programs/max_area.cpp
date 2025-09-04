@@ -47,7 +47,7 @@ int MaxAreaTwoPointers(vector<int> vect)
 
 int main()
 {
-        int n;
+    int n;
     cout<<"\n Enter the size of array  : ";
     cin>>n;
 
