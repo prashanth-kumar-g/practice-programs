@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int MaxAreaBruteForce(vector<int> vect)
+int MaxAreaBruteForce(vector<int> &vect)
 {
     int maxArea = 0;
 
@@ -23,7 +23,7 @@ int MaxAreaBruteForce(vector<int> vect)
     return maxArea;
 }
 
-int MaxAreaTwoPointers(vector<int> vect)
+int MaxAreaTwoPointers(vector<int> &vect)
 {
     int left = 0, right = vect.size();
     int maxArea = 0;
