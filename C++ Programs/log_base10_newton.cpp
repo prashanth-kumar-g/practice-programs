@@ -53,9 +53,9 @@ int main()
             cout<<" Not Defined \n"<<endl;
     else
         if(result - intPart > 1e-10)
-            cout<<noshowpoint<<setprecision(11)<<" \n Logarithm(base10) of "<<number<<" = "<<fixed<<setprecision(10)<<result<<"\n"<<endl;
+            cout<<noshowpoint<<setprecision(11)<<" \n Log(base10) of "<<number<<" = "<<fixed<<setprecision(10)<<result<<"\n"<<endl;
         else
-            cout<<noshowpoint<<setprecision(11)<<" \n Logarithm(base10) of "<<number<<" = "<<intPart<<"\n"<<endl;
+            cout<<noshowpoint<<setprecision(11)<<" \n Log(base10) of "<<number<<" = "<<intPart<<"\n"<<endl;
 
     return 0;
 }
