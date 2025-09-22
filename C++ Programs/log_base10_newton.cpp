@@ -50,7 +50,7 @@ int main()
     long long intPart = result;
 
     if(result == -1)
-            cout<<" Not Defined \n"<<endl;
+            cout<<"\n Log10 of "<<number<<" is Not Defined \n"<<endl;
     else
         if(result - intPart > 1e-10)
             cout<<noshowpoint<<setprecision(11)<<" \n Log10 of "<<number<<" = "<<fixed<<setprecision(10)<<result<<"\n"<<endl;
