@@ -6,7 +6,7 @@ double cubeRootNetwonMethod(double n, double eps = 1e-10)
 {
     if(n < 0) n = -n;
 
-    if(n == 0 || n ==1) return n;
+    if(n == 0 || n == 1) return n;
 
     double x = n / 3.0;     // initial guess
 
