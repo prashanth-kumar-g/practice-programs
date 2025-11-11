@@ -1,4 +1,4 @@
-// program to find sum of two numbers
+// program to find sum of two numbers (input)
 #include<iostream>
 
 int main()
