@@ -1,3 +1,6 @@
+// Program 02: Vector Initialization Methods
+// Demonstrates commonly used ways to create and initialize a vector.
+
 #include <iostream>
 #include <vector>
 #include <list>
@@ -53,7 +56,7 @@ int main()
 
     // 9️⃣ Reserve + push_back (used when final size known)
     vector<int> v9;
-    v9.reserve(3);
+    v9.reserve(3);  // (or together) vector<int> v9(3);
     v9.push_back(9);
     v9.push_back(8);
     v9.push_back(7);
