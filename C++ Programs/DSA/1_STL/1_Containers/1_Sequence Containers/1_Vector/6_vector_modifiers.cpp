@@ -1,5 +1,6 @@
 // Program 06: Modifiers in vector
-// Demonstrates modifier functions like push_back(), pop_back(), insert(), erase(), emplace(), emplace_back(), clear(), and swap().
+// Demonstrates modifier functions like push_back(), pop_back(), insert(), erase(), 
+// emplace(), emplace_back(), clear(), and swap().
 
 #include <iostream>
 #include <vector>
@@ -50,8 +51,8 @@ int main()
 
     // 5️⃣ emplace() - construct element in-place at position
     cout << "5) emplace():\n";
-    v.emplace(v.begin(), 100);           // insert 100 at beginning
-    printVec(v, "   After emplace(100) at beginning");
+    v.emplace(v.begin() + 2, 100);           // insert 100 at beginning
+    printVec(v, "   After emplace(100) at 3rd index");
 
     // 6️⃣ emplace_back() - construct element in-place at end
     cout << "6) emplace_back():\n";

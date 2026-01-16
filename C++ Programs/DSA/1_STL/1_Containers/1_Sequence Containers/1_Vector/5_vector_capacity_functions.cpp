@@ -10,6 +10,7 @@ void printStatus(const vector<int>& v, const string& msg)
     cout << msg << "\n";
     cout << "   size      = " << v.size() << "\n";
     cout << "   capacity  = " << v.capacity() << "\n";
+    cout << "   max_size   = " << v.max_size() << "\n";
     cout << "   empty()   = " << (v.empty() ? "Yes" : "No") << "\n\n";
 }
 
