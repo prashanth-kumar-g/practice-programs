@@ -2,7 +2,7 @@
 #include<iomanip>
 using namespace std;
 
-double squareRootNetwonMethod(double n, double eps = 1e-10)
+double squareRootNewtonMethod(double n, double eps = 1e-10)
 {
     if(n < 0) n = -n;
 
@@ -29,7 +29,7 @@ int main()
     cout<<"\n Enter a number : ";
     cin>>number;
 
-    double result = squareRootNetwonMethod(number);
+    double result = squareRootNewtonMethod(number);
     long long intPart = result;
 
     if(number < 0)
