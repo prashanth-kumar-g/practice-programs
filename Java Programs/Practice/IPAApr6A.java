@@ -1,202 +1,145 @@
 import java.util.*;
 
-class Author 
+// Student class
+class Student 
 {
-    private int authorId;
-    private String authorName;
+    private int id;
+    private String name;
+    private int totalMarksObt;
 
-    public Author(int authorId, String authorName) 
+    // Constructor
+    public Student(int id, String name, int totalMarksObt) 
 	{
-        this.authorId = authorId;
-        this.authorName = authorName;
+        this.id = id;
+        this.name = name;
+        this.totalMarksObt = totalMarksObt;
     }
 
-    public int getAuthorId() 
-	{
-        return authorId;
-    }
+    // Getters
+    public int getId() 
+	{ 
+		return id; 
+	}
+    
+	public String getName() 
+	{ 
+		return name; 
+	}
+    
+	public int getTotalMarksObt() 
+	{ 
+		return totalMarksObt; 
+	}
 
-    public String getAuthorName() 
-	{
-        return authorName;
-    }
-
-    public void setAuthorId(int authorId) 
-	{
-        this.authorId = authorId;
-    }
-
-    public void setAuthorName(String authorName) 
-	{
-        this.authorName = authorName;
-    }
+    // Setters
+    public void setId(int id) 
+	{ 
+		this.id = id; 
+	}
+    
+	public void setName(String name) 
+	{ 
+		this.name = name; 
+	}
+    
+	public void setTotalMarksObt(int totalMarksObt) 
+	{ 
+		this.totalMarksObt = totalMarksObt; 
+	}
 }
 
-class Book 
+// Solution class
+public class IPAApr6B 
 {
-    private int bookId;
-    private String title;
-    private String genre;
-    private double price;
-    private Author author;
-
-    public Book(int bookId, String title, String genre, double price, Author author) 
+    // Method 1: Find student with highest total
+    public static String findStudentWithHighestTotal(Student[] students) 
 	{
-        this.bookId = bookId;
-        this.title = title;
-        this.genre = genre;
-        this.price = price;
-        this.author = author;
-    }
+        int max = Integer.MIN_VALUE;
+        String result = "";
 
-    public int getBookId() 
-	{
-        return bookId;
-    }
-
-    public String getTitle() 
-	{
-        return title;
-    }
-
-    public String getGenre() 
-	{
-        return genre;
-    }
-
-    public double getPrice() 
-	{
-        return price;
-    }
-
-    public Author getAuthor() 
-	{
-        return author;
-    }
-
-    public void setBookId(int bookId) 
-	{
-        this.bookId = bookId;
-    }
-
-    public void setTitle(String title) 
-	{
-        this.title = title;
-    }
-
-    public void setGenre(String genre) 
-	{
-        this.genre = genre;
-    }
-
-    public void setPrice(double price) 
-	{
-        this.price = price;
-    }
-
-    public void setAuthor(Author author) 
-	{
-        this.author = author;
-    }
-}
-
-class Business 
-{
-    public static List<Book> getBooksBelongingToAGenre(List<Book> books, String genre) 
-	{
-        List<Book> result = new ArrayList<>();
-
-        for (Book b : books) 
+        for (Student s : students) 
 		{
-            if (b.getGenre().equalsIgnoreCase(genre)) 
+            if (s.getTotalMarksObt() > max) 
 			{
-                result.add(b);
+                max = s.getTotalMarksObt();
+                result = s.getName();
             }
+        }
+
+        return result.toUpperCase(); // required in uppercase
+    }
+
+    // Method 2: Search students by percentage >= 70
+    public static int[] searchStudentsByPercentage(Student[] students) 
+	{
+        List<Integer> list = new ArrayList<>();
+
+        for (Student s : students) 
+		{
+            // total marks out of 400
+            double percentage = (s.getTotalMarksObt() / 400.0) * 100;
+
+            if (percentage >= 70) 
+			{
+                list.add(s.getId());
+            }
+        }
+
+        if (list.isEmpty()) 
+		{
+            return null;
+        }
+
+        // sort ascending
+        Collections.sort(list);
+
+        // convert to array
+        int[] result = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) 
+		{
+            result[i] = list.get(i);
         }
 
         return result;
     }
 
-    public static List<Book> calculateDiscountedPrice(List<Book> books, String genre, double discount) 
-	{
-        List<Book> result = new ArrayList<>();
-
-        for (Book b : books) 
-		{
-            if (b.getGenre().equalsIgnoreCase(genre)) 
-			{
-                double discountedPrice = b.getPrice() - (b.getPrice() * discount / 100.0);
-                b.setPrice(discountedPrice);
-                result.add(b);
-            }
-        }
-
-        return result;
-    }
-}
-
-public class IPAApr6A 
-{
+    // Main method
     public static void main(String[] args) 
 	{
         Scanner sc = new Scanner(System.in);
 
         int n = sc.nextInt();
-
-        List<Book> books = new ArrayList<>();
+		
+        Student[] students = new Student[n];
 
         for (int i = 0; i < n; i++) 
 		{
-            int authorId = sc.nextInt();
+            int id = sc.nextInt();
             sc.nextLine();
-            String authorName = sc.nextLine();
-
-            int bookId = sc.nextInt();
-            sc.nextLine();
-            String title = sc.nextLine();
-            String genre = sc.nextLine();
-            double price = sc.nextDouble();
+            String name = sc.nextLine();
+            int marks = sc.nextInt();
             sc.nextLine();
 
-            Author author = new Author(authorId, authorName);
-            Book book = new Book(bookId, title, genre, price, author);
-            books.add(book);
+            students[i] = new Student(id, name, marks);
         }
 
-        String genre1 = sc.nextLine();
-        String genre2 = sc.nextLine();
-        double discount = Double.parseDouble(sc.nextLine().trim());
+        // Method 1
+        String highest = findStudentWithHighestTotal(students);
+        System.out.println(highest);
 
-        List<Book> genreBooks = Business.getBooksBelongingToAGenre(books, genre1);
+        // Method 2
+        int[] result = searchStudentsByPercentage(students);
 
-        if (genreBooks.isEmpty()) 
+        if (result != null) 
 		{
-            System.out.println("Genre is not available in the list");
+            for (int id : result) 
+			{
+                System.out.println(id);
+            }
         } 
 		else 
 		{
-            for (Book b : genreBooks) 
-			{
-                System.out.println("AuthorName: " + b.getAuthor().getAuthorName() + ", Title: " + b.getTitle());
-            }
-        }
-
-        System.out.println();
-
-        List<Book> discountedBooks = Business.calculateDiscountedPrice(books, genre2, discount);
-
-        if (discountedBooks.isEmpty()) 
-		{
-            System.out.println("Discounted books are unavailable in the given genre");
-        } 
-		else 
-		{
-            System.out.println("Discounted " + genre2 + " Books:");
-            
-			for (Book b : discountedBooks) 
-			{
-                System.out.println("AuthorName: " + b.getAuthor().getAuthorName() + ", Title: " + b.getTitle() + ", Updated Price: " + b.getPrice());
-            }
+            System.out.println("No Student found with mentioned attribute");
         }
 
         sc.close();
