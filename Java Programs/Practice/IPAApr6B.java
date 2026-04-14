@@ -148,11 +148,19 @@ public class IPAApr6A
         for (int i = 0; i < n; i++) 
 		{
             int authorId = sc.nextInt();
+<<<<<<< HEAD
             sc.nextLine();
             String authorName = sc.nextLine();
 
             int bookId = sc.nextInt();
             sc.nextLine();
+=======
+            sc.nextLine();
+            String authorName = sc.nextLine();
+
+            int bookId = sc.nextInt();
+            sc.nextLine();
+>>>>>>> fea6b13111be2ac59cf30cb06ea3aa4b264f277c
             String title = sc.nextLine();
             String genre = sc.nextLine();
             double price = sc.nextDouble();

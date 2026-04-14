@@ -65,6 +65,7 @@ public class IPAApr6B
                 result = s.getName();
             }
         }
+<<<<<<< HEAD
 
         return result.toUpperCase(); // required in uppercase
     }
@@ -74,6 +75,17 @@ public class IPAApr6B
 	{
         List<Integer> list = new ArrayList<>();
 
+=======
+
+        return result.toUpperCase(); // required in uppercase
+    }
+
+    // Method 2: Search students by percentage >= 70
+    public static int[] searchStudentsByPercentage(Student[] students) 
+	{
+        List<Integer> list = new ArrayList<>();
+
+>>>>>>> fea6b13111be2ac59cf30cb06ea3aa4b264f277c
         for (Student s : students) 
 		{
             // total marks out of 400
