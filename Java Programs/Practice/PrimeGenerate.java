@@ -31,5 +31,7 @@ public class PrimeGenerate
 		}
 
 		System.out.println();
+		
+		sc.close();
 	}
 }

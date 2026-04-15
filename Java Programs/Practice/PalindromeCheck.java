@@ -27,5 +27,7 @@ public class PalindromeCheck
 		{
 			System.out.println("\n " + n + " is not a palindrome");
 		}
+		
+		sc.close();
 	}
 }	

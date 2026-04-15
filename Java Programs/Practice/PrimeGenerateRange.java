@@ -39,5 +39,7 @@ public class PrimeGenerateRange
 		}
 
 		System.out.println();
+		
+		sc.close();
 	}
 }
