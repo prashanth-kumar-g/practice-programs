@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class IPA3a
+public class IPAQP3a
 {
 	public static void main(String args[])
 	{

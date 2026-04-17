@@ -80,7 +80,7 @@ class Hotel
 	}
 }
 
-public class IPA3b
+public class IPAQP3b
 {
 	public static int noOfRoomsBookedInGivenMonth(Hotel[] hotels, String month) 
 	{

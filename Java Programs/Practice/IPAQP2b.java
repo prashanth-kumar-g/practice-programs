@@ -68,7 +68,7 @@ class Laptop
 	}
 }
 
-public class IPA2b
+public class IPAQP2b
 {
 	public static int countOfLaptopsByBrand(Laptop[] laptops, String brand)
 	{

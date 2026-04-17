@@ -68,7 +68,7 @@ class Player
 	}
 }
 
-public class IPA1b
+public class IPAQP1b
 {
 	public static int findPlayerWithLowestRuns(Player[] players, String playerType)
 	{
