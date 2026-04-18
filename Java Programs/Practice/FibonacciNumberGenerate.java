@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class FibonacciSeries
+public class FibonacciNumberGenerate
 {
 	public static void main(String args[])
 	{
