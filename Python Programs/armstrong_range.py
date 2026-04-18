@@ -1,13 +1,12 @@
 import math
 
-n = int(input("Enter the no. of terms : "))
+m, n = map(int, input("Enter the range (m & n) : ").split())
 
 print("The armstrong numbers are :", end = " ")
 
-num = 0
-count = 0
+num = m
 
-while(count != n):
+while(num <= n):
     temp = num
 
     if num == 0:
@@ -24,6 +23,5 @@ while(count != n):
 
     if(result == num):
         print(num, end = " ")
-        count += 1
 
     num += 1
