@@ -1,0 +1,139 @@
+<!-- ===================== SMART DOCUMENT ANALYZER ===================== -->
+<!--                                                                      -->
+<!--  Maven Project Object Model (POM) for the Smart Document Analyzer   -->
+<!--  Desktop application for document analysis and text intelligence     -->
+<!--                                                                      -->
+<!--  Key Features:                                                       -->
+<!--    - Supports TXT, PDF, DOCX, XLSX, PPTX document formats            -->
+<!--    - Extracts 12 deep text intelligence metrics                      -->
+<!--    - Displays PDF page thumbnail after file upload                   -->
+<!--    - Drag & Drop file upload support                                 -->
+<!--    - Fixed proportional 42/58 card split layout                      -->
+<!--    - Live status bar with color-coded feedback                       -->
+<!--                                                                      -->
+<!--  Dependencies:                                                       -->
+<!--    - FlatLaf 3.7        : Modern look-and-feel for Swing            -->
+<!--    - PDFBox 3.0.7       : PDF text extraction and page rendering    -->
+<!--    - Apache POI 5.5.1   : DOCX, XLSX, PPTX text extraction          -->
+<!--                                                                      -->
+<!--  Build Plugins:                                                      -->
+<!--    - maven-compiler-plugin 3.13.0 : Compiles with Java 21           -->
+<!--    - exec-maven-plugin 3.5.0      : Run application with `mvn exec:java` -->
+<!--    - maven-jar-plugin 3.3.0       : Creates executable JAR with Main class -->
+<!--    - maven-shade-plugin 3.6.0     : Creates an uber-JAR with all dependencies -->
+<!--                                                                      -->
+<!-- =================================================================== -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- ===================== PROJECT COORDINATES ===================== -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.algonive</groupId>
+    <artifactId>smart-document-analyzer</artifactId>
+    <version>1.0.0</version>
+
+
+    <!-- ===================== PROPERTIES ===================== -->
+    <properties>
+        <!-- Java version for compilation -->
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+
+        <!-- Character encoding for source files -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+
+    <!-- ===================== DEPENDENCIES ===================== -->
+    <dependencies>
+
+        <!-- FlatLaf — modern, cross-platform look-and-feel for Swing -->
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf</artifactId>
+            <version>3.7</version>
+        </dependency>
+
+        <!-- Apache PDFBox — PDF text extraction and thumbnail rendering -->
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>3.0.7</version>
+        </dependency>
+
+        <!-- Apache POI — text extraction for DOCX, XLSX, PPTX -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.5.1</version>
+        </dependency>
+
+    </dependencies>
+
+
+    <!-- ===================== BUILD CONFIGURATION ===================== -->
+    <build>
+        <plugins>
+
+            <!-- Compiler Plugin — enforces Java 21 compatibility -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+            </plugin>
+
+            <!-- Exec Plugin — run the application directly from Maven -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <mainClass>Main</mainClass>
+                </configuration>
+            </plugin>
+
+            <!-- JAR Plugin — creates an executable JAR with Main class manifest -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- Shade Plugin — creates an uber-JAR with all dependencies -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.6.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <shadedArtifactAttached>true</shadedArtifactAttached>
+                            <shadedClassifierName>all</shadedClassifierName>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>Main</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
