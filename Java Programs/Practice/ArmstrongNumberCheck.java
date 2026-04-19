@@ -1,3 +1,6 @@
+// Armstrong Number: A number equal to the sum of its digits raised to the 
+// power of total digits (e.g., 153 = 1^3 + 5^3 + 3^3, 1634 = 1^4 + 6^4 + 3^4+ 4^4)
+
 import java.util.*;
 
 public class ArmstrongNumberCheck

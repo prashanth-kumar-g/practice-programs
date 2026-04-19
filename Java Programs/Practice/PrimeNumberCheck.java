@@ -1,3 +1,5 @@
+// Prime Number: A number greater than 1 that has only two factors, 1 and itself (e.g., 2, 3, 5, 7)
+
 import java.util.Scanner;
 
 public class PrimeNumberCheck

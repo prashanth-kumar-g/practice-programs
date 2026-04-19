@@ -1,3 +1,6 @@
+// Fibonacci Series: A series where each number is the sum of the previous
+// two numbers, where first two terms are 0 & 1 (e.g., 0, 1, 1, 2, 3, 5...)
+
 import java.util.*;
 
 public class FibonacciNumberCheck

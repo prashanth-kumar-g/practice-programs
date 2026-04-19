@@ -1,3 +1,5 @@
+// Palindrome Number: A number that remains the same when reversed (e.g., 99, 121, 34543)
+
 import java.util.Scanner;
 
 public class PalindromeNumberCheck
