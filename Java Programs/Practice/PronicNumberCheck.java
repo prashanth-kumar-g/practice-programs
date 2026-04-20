@@ -21,18 +21,18 @@ public class PronicNumberCheck
 		System.out.print("\n Enter a number : ");
 		int n = sc.nextInt();
 
-		int d = (int)Math.sqrt(1 + 4 * n)
+		int d = (int)Math.sqrt(1 + 4 * n);
 		
 		int r1 = (-1 + d) / 2;
 		int r2 = Math.abs((-1 - d) / 2);
 
 		if(r1 * r2 == n)
 		{
-			System.out.println("\n " + n + " is a spy number");
+			System.out.println("\n " + n + " is a pronic number" + ", since " + n + " = " + r1 + " * " + r2);
 		}
 		else
 		{
-			System.out.println("\n " + n + " is not a spy number");
+			System.out.println("\n " + n + " is not a pronic number");
 		}
 		
 		sc.close();

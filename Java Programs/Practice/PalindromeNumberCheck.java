@@ -32,4 +32,4 @@ public class PalindromeNumberCheck
 		
 		sc.close();
 	}
-}	
+}
