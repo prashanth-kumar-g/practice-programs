@@ -1,0 +1,14 @@
+h1 {
+    color: red;
+    background-color: aqua;
+}
+
+#paragraph {
+    color: blue;
+    background-color: yellow;
+}
+
+.container {
+    color: green;
+    background-color: rgb(240, 239, 158);
+}

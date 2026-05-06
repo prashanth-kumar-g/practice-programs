@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: rgb(6, 50, 151);
+    height: 60px;
+    width: 100%;
+}
+
+.navbar ul {
+    list-style-type: none;
+    text-align: right;
+}
+
+.navbar ul li{
+    color: white;
+    display: inline-block;
+    margin: 5px;
+    padding: 10px;
+}
+
+.navbar ul li a{
+    color: white;
+}
+
+.left {
+    background-color: orangered;
+    height: 600px;
+    width: 50%;
+    display: inline-block;
+}
+
+.right {
+    background-color: green;
+    height: 600px;
+    width: 50%;
+    display: inline-block;
+}
+
+.footer {
+    background-color: rgb(123, 18, 198);
+    height: 50px;
+    width: 100%;
+}
+
+#copyright {
+    color: white;
+    text-align: center;
+    padding-top: 15px;
+}

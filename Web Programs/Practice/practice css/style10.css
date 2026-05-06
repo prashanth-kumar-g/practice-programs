@@ -1,0 +1,36 @@
+.container {
+    background-color: red;
+    height: 600px;
+}
+
+.box {
+    display: inline-block;
+    border : 2px solid black;
+    
+    /* transform-origin: 0;  */
+    /* left right center top bottom */
+
+    /* transform: translate(134px, 56px) rotate(45deg); */
+
+    /* transform: scale(2,4); */
+
+    /* transform: skew(5deg, 10deg); */
+
+    position: relative;
+    left: 500px;
+    top: 150px;
+}
+
+img {
+    width: 300px;
+    height: 250px;
+    transition-property: width, height;
+    transition-duration: 2s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0.5s;
+}
+
+img:hover {
+    width: 500px;
+    height: 350px;
+}

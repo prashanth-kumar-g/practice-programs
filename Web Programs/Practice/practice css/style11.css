@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+    font-size: 1vw;
+    padding: 0 10px;
+}
+
+li a {
+    text-decoration: none;
+    color: white;
+}
+
+ul {
+    text-align: center;
+}
+
+header {
+    background-color: black;
+    padding: 25px;
+}
+
+.container {
+    background-color: rgb(11, 117, 198);
+    height: calc(100vh - 1vw - 25px - 60px - 25px);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.box1 img {
+    animation-name: widthAnimate;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.box2 img {
+    margin: 0 20px;
+    animation-name: imageRotate;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+
+.box3{
+    margin-left: auto;
+}
+
+.box3 img {
+    animation-name: widthAnimate;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes widthAnimate {
+    0% {
+        width: 210px;
+    }
+    100% {
+        /* FIX: 100vw minus (Dragon 150px + Margins 40px + Min Sword 210px) = 400px */
+        width: calc(100vw - 400px);
+    }
+} 
+
+@keyframes imageRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(90deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    75% {
+        transform: rotate(270deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.footer {
+    background-color: rgb(0, 0, 0);
+    height: 60px;
+    width: 100%;
+}
+
+#copyright {
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+}
