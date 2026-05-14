@@ -1,6 +1,7 @@
 // 12. DOM Manipulation in JavaScript
     // DOM stands for Document Object Model. It is a programming interface for HTML and XML documents. It represents the structure of a document as a tree of objects, where each object corresponds to a part of the document (such as an element, attribute, or text).
     // DOM manipulation refers to the process of changing the structure, style, or content of a web page using JavaScript. This can be done by accessing and modifying the DOM elements using various methods and properties provided by the DOM API.
+    
     // Here are some common DOM manipulation techniques in JavaScript:
 
     // Accessing DOM Elements
@@ -69,8 +70,3 @@
     // These are just some of the basic techniques for DOM manipulation in JavaScript. There are many more methods and properties available in the DOM API that you can use to create dynamic and interactive web pages.
     // It's important to note that when manipulating the DOM, it's best practice to minimize the number of changes you make to the DOM, as it can be expensive in terms of performance. Instead, you can make changes to a document fragment or use techniques like batching updates to improve performance.
     // DOM manipulation is a powerful tool for creating dynamic and interactive web pages, but it should be used judiciously to ensure good performance and maintainability of your code.
-
-// 13. Event Handling in JavaScript
-    // Event handling in JavaScript refers to the process of responding to user interactions or other events that occur in the browser. Events can be triggered by various actions, such as clicking a button, hovering over an element, submitting a form, or even loading a page.
-    // In JavaScript, you can handle events using event listeners. An event listener is a function that is called when a specific event occurs on an element. You can attach event listeners to elements using methods like addEventListener or by setting the event handler properties directly on the element.
-    // create an form html for this and new script5.js for event handling practice
