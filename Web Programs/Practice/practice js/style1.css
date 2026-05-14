@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: cyan;
+    border: 2px solid black;
+    padding: 9px;
+    margin: 3px 0;
+}
+
+.bg-red {
+    background-color: red;
+    border: 2px solid black;
+    border-radius: 5px;
+}
