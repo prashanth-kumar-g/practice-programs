@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class IPAExam1
+public class IPAExam1_a
 {
 	public static void main(String args[])
 	{

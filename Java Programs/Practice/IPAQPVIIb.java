@@ -56,7 +56,7 @@ class Book
 	}
 }
 
-public class IPAQPVIIb
+public class IPAQPVIIB
 {
 	public static Book[] sortBooksByPrice(Book[] books)
 	{
