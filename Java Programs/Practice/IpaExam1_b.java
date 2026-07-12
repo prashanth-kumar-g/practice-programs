@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class IpaExam1_b
+public class IPAExam1_b
 {
 	public static int CountWords(String str)
 	{

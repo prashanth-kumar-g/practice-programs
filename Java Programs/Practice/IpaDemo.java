@@ -68,7 +68,7 @@ class Spotify
 	}
 }
 
-public class IpaDemo
+public class IPADemo
 {
 	public static double findAvgSpotifySubsByType(Spotify[] spotifys, String subscriptionType, String groupSessionAvailable)
 	{
