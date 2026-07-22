@@ -6,8 +6,13 @@
 *.save
 *.pdf
 *.docx
+*.ico
 *.txt
 *.swp
+*.lst
+*.properties
+*.exe
 mysql-connector-j-9.4.0/
 target/
 out/
+Smart Document Analyser/

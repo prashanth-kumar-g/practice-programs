@@ -35,4 +35,3 @@ public class MultipleInheritanceDemo
 		obj.transform();
 	}
 }
-
