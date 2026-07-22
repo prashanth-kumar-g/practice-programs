@@ -10,5 +10,9 @@ node_modules/
 *.png
 *.json
 *.txt
+*.pdf
 *.md
 *.svg
+stock-volatility-calculator/
+Fingerprint-based Emergency Identity Retrieval System/
+Portfolio/

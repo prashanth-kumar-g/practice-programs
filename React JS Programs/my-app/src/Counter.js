@@ -31,6 +31,6 @@ function Counter() {
       <button onClick={increment} style={buttonStyle}>Increase</button> 
       <button onClick={decrement} style={buttonStyle}>Decrease</button> 
       <button onClick={reset} style={buttonStyle}>Reset</button> 
-    </div> 
+    </div>
   ); 
-} export default Counter; 
+} export default Counter;

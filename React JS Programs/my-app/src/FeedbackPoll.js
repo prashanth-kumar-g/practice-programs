@@ -25,5 +25,5 @@ return (
 </div> 
 </div> 
 ); 
-}; 
+};
 export default FeedbackPoll; 

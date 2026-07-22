@@ -25,4 +25,4 @@ return (
 </div> 
 ); 
 } 
-export default VehicleCard; 
+export default VehicleCard;
