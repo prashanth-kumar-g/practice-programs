@@ -12,9 +12,9 @@ public class PerfectNumberCheck
 		System.out.print("\n Enter a number : ");
 		int n = sc.nextInt();
 		
-		List<Integer> factors = new ArrayList<>();
+		List<Integer> properDivisors  = new ArrayList<>();
 		
-		factors.add(1);
+		properDivisors .add(1);
 
 		for(int i = 2; i * i <= n; i++)
 		{
@@ -22,17 +22,17 @@ public class PerfectNumberCheck
 			
 			if(n % i == 0)
 			{
+				properDivisors .add(i);
+
 				int quot = temp / i;
 				
-				factors.add(i);
-				
-				factors.add(quot);
+				properDivisors .add(quot);
 			}
 		}
 		
 		int sum = 0;
 
-		for(int f : factors)
+		for(int f : properDivisors )
 		{
 			sum = sum + f;
 		}

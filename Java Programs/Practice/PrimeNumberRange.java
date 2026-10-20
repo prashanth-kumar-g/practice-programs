@@ -42,4 +42,5 @@ public class PrimeNumberRange
 		
 		sc.close();
 	}
+
 }

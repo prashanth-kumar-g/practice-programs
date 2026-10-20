@@ -23,4 +23,5 @@ public class StarPattern
 	
 		sc.close();
 	}
-}	
+}
+	

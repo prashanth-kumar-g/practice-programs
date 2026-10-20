@@ -14,7 +14,7 @@ public class PalindromeNumberGenerate
 		int num = 0;
 		int count = 0;
 
-		while(count != 0)
+		while(count != n)
 		{
 			int temp = num;
 			

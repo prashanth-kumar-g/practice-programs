@@ -8,7 +8,7 @@
 // for 'x' in equation n = x * (x + 1) → x^2 + x - n = 0
 
 // if ax^2 + bx + c = 0, then x = (-b ± √(b^2 - 4ac)) / 2a
-// so for x^2 + x - n = 0, n = (-1 ± √(1 + 4n)) / 2
+// so for x^2 + x - n = 0, x = (-1 ± √(1 + 4n)) / 2
 
 import java.util.*;
 

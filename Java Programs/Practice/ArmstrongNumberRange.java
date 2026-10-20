@@ -7,6 +7,7 @@ public class ArmstrongNumberRange
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.print("\n Enter the range (m & n) : ");
+		int m = sc.nextInt();
 		int n = sc.nextInt();
 		
 		System.out.print("\n The Armstrong numbers are : ");
