@@ -2,7 +2,57 @@ import java.util.*;
 
 public class IWSExam3
 {
-    public static int findWaysBruteForce(int n, String s, int k)
+	public static int findWaysBruteForceBitMask(int n, String s, int k)
+	{
+		int ways = 0;
+
+		int total = 1 << (n - 1);
+
+		for (int mask = 0; mask < total; mask++)
+		{
+			int start = 0;
+			boolean valid = true;
+
+			for (int i = 0; i < n; i++)
+			{
+				if (i == n - 1 || (mask & (1 << i)) != 0)
+				{
+					int len = i - start + 1;
+
+					if (len > k)
+					{
+						valid = false;
+						break;
+					}
+
+					for (int j = 0; j < len; j++)
+					{
+						if (s.charAt(start + j) != s.charAt(j))
+						{
+							valid = false;
+							break;
+						}
+					}
+
+					if (!valid)
+					{
+						break;
+					}
+
+					start = i + 1;
+				}
+			}
+
+			if (valid)
+			{
+				ways++;
+			}
+		}
+
+		return ways;
+	}
+	
+    public static int findWaysBruteForceRecursion(int n, String s, int k)
     {
         return countWays(s, k, 0);
     }
@@ -118,7 +168,9 @@ public class IWSExam3
         String s = sc.next();
         int k = sc.nextInt();
 
-        // int result = findWaysBruteForce(n, s, k);
+        // int result = findWaysBruteForceBitMask(n, s, k);
+		
+		// int result = findWaysBruteForceRecursion(n, s, k);
 
         int result = findWaysOptimised(n, s, k);
 		
@@ -142,7 +194,7 @@ The song must be divided into one or more non-empty, contiguous pieces.
 Every piece must satisfy the following conditions:
 
 1. The piece must be a prefix of the original string S.
-2. The length of the piece must not exceed K.
+2. The length of each piece must not exceed K.
 3. Every character of the original string must belong to exactly
    one piece.
 4. The pieces must remain in their original order.
@@ -167,17 +219,17 @@ The second line contains the string S.
 The third line contains an integer K, representing the maximum
 permitted length of each piece.
 
-INPUT 1:
+EXAMPLE 1:
 
+Input:
 3
 aaa
 2
 
-OUTPUT 1:
-
+Output:
 3
 
-EXPLANATION:
+Explanation:
 
 The original string is "aaa", and K = 2.
 
@@ -195,17 +247,17 @@ which exceeds K = 2.
 
 Therefore, the answer is 3.
 
-INPUT 2:
+EXAMPLE 2:
 
+Input:
 3
 aaa
 3
 
-OUTPUT 2:
-
+Output:
 4
 
-EXPLANATION:
+Explanation:
 
 The original string is "aaa", and K = 3.
 
@@ -216,26 +268,26 @@ The valid partitions are:
 3. "aa" | "a"
 4. "aaa"
 
-The entire string "aaa" is also a prefix of itself and its length
+The entire string "aaa" is also a prefix of itself, and its length
 does not exceed K = 3.
 
 Therefore, the answer is 4.
 
-INPUT 3:
+EXAMPLE 3:
 
+Input:
 3
 aab
 3
 
-OUTPUT 3:
-
+Output:
 1
 
-EXPLANATION:
+Explanation:
 
 The original string is "aab", and K = 3.
 
-The valid partition is:
+The only valid partition is:
 
 "aab"
 
@@ -254,112 +306,275 @@ Therefore, only one valid partition exists.
 
 The answer is 1.
 
-BRUTE-FORCE METHOD:
 
-The brute-force method uses recursion to explore all valid partitions.
+============================================================
+METHOD 1: BRUTE FORCE USING BITMASK
+============================================================
 
-The recursive function receives the current index of the string.
+The bitmask method generates every possible arrangement of
+boundaries between adjacent characters of the string.
 
-If the current index reaches the end of the string, one complete
-valid partition has been found, so the function returns 1.
+A string of length N has N - 1 possible positions where a
+partition boundary can be placed.
 
-Otherwise, the function tries every possible piece length from
-1 to K, provided that the piece does not extend beyond the string.
+Each boundary has two choices:
+1. Place a boundary.
+2. Do not place a boundary.
 
-For each candidate piece, it compares the characters against
-the corresponding prefix of the original string.
+Therefore, the total number of possible boundary arrangements is:
 
-If every character matches, the piece is a valid prefix.
+2^(N - 1)
 
-The function then recursively counts the valid partitions
-of the remaining suffix.
+The expression:
 
-The results from all valid choices are added together.
+1 << (N - 1)
+
+calculates this number using a bit shift.
+
+For example, consider S = "aaa".
+
+There are two possible boundary positions:
+
+a _ a _ a
+
+The four boundary arrangements are:
+
+1. 00: "aaa"
+2. 01: "a" | "aa"
+3. 10: "aa" | "a"
+4. 11: "a" | "a" | "a"
+
+Each arrangement represents one possible partition.
+
+The outer loop iterates through every bitmask.
+
+The inner loop identifies the positions where pieces end.
+
+For each piece, the method checks:
+
+1. Whether its length exceeds K.
+2. Whether the piece matches the corresponding prefix
+   of the original string.
+
+If any piece violates either condition, the partition is invalid.
+
+If every piece satisfies both conditions, increment the answer.
+
+For S = "aaa" and K = 2, the partition "aaa" is invalid,
+while the other three partitions are valid.
+
+Therefore, the answer is 3.
+
+TIME COMPLEXITY:
+
+There are 2^(N - 1) possible boundary arrangements.
+
+For each arrangement, the method examines the string and may
+compare characters for each piece.
+
+Worst-case Time Complexity: O(2^N * N^2)
+
+A tighter bound for this implementation is O(2^N * N),
+because the total number of characters compared across all
+pieces of one partition is at most N, and each partition is
+processed in O(N) time.
+
+Auxiliary Space Complexity: O(1)
+
+
+============================================================
+METHOD 2: BRUTE FORCE USING RECURSION
+============================================================
+
+The recursive method explores every possible valid piece length
+at the current position.
+
+The function countWays receives the current index of the string.
+
+BASE CASE:
+
+If index reaches the length of the string, a complete valid
+partition has been found, so return 1.
+
+RECURSIVE CASE:
+
+Try every possible piece length from 1 to K, provided that
+the piece does not extend beyond the end of the string.
+
+For every candidate piece, compare its characters with the
+corresponding prefix of the original string.
+
+If the candidate matches the prefix, it is a valid piece.
+
+Recursively count the valid partitions of the remaining suffix
+starting at index + len.
+
+Add the results of all valid choices and return the total.
+
+For S = "aaa" and K = 2:
+
+First choice: "a"
+The remaining suffix is "aa", which has two valid partitions:
+"a" | "a"
+"aa"
+
+Second choice: "aa"
+The remaining suffix is "a", which has one valid partition:
+"a"
+
+Total valid partitions = 2 + 1 = 3.
 
 The initial call starts at index 0.
 
-TIME AND SPACE COMPLEXITY:
+TIME COMPLEXITY:
 
-Time Complexity: Exponential in the worst case.
+Exponential in the worst case because the same remaining suffix
+may be solved repeatedly.
 
-Auxiliary Space Complexity: O(N), excluding integer overflow
-and the recursion's returned values.
+A safe upper bound is O(2^N * N * K), including the character
+comparisons performed for candidate pieces.
 
-OPTIMISED METHOD:
+Auxiliary Space Complexity: O(N) for the recursion stack.
 
-The optimised method uses the Z-algorithm and dynamic programming.
+
+============================================================
+METHOD 3: OPTIMIZED Z-ALGORITHM AND DYNAMIC PROGRAMMING
+============================================================
+
+The optimized method avoids enumerating every possible partition.
+
+It uses two techniques:
+
+1. Z-algorithm to find valid piece lengths.
+2. Dynamic programming with a difference array to count partitions.
+
 
 PART 1: Z-ALGORITHM
 
 The Z-array stores the length of the longest prefix match
 starting at each index of the original string.
 
-For example, for S = "aaa":
+For S = "aaa":
 
-Index 0: Z[0] = 3
-Index 1: Z[1] = 2
-Index 2: Z[2] = 1
+Index:  0  1  2
+Z:      3  2  1
 
-These values indicate how many consecutive characters starting
-at each index match the original string's prefix.
+At index 0, the entire string matches its prefix.
 
-At index i, the maximum valid piece length is:
+At index 1, the suffix "aa" matches the prefix "aa".
+
+At index 2, the suffix "a" matches the prefix "a".
+
+Therefore, Z[i] tells us the maximum possible length of a piece
+starting at index i that is a prefix of S.
+
+The maximum permitted piece length at index i is:
 
 min(K, Z[i])
 
-This determines the valid piece lengths at that position.
 
 PART 2: DYNAMIC PROGRAMMING
 
 Let dp[i] represent the number of valid ways to partition
 the first i characters of the string.
 
-Initially:
+INITIALIZATION:
 
 dp[0] = 1
 
 There is one way to partition an empty prefix: choose no pieces.
 
-If a valid piece can start at index i and have a length between
-1 and maxLength, it can extend a valid partition to endpoints
-from i + 1 through i + maxLength.
+TRANSITION:
 
-Therefore, dp[i] contributes to every endpoint in that range.
+Suppose a valid partition reaches index i.
 
-The optimised method uses a difference array to add this
-contribution to an entire range efficiently.
+Let:
 
-The final answer is dp[N].
+maxLength = min(K, Z[i])
 
-WHY INT IS USED:
+A valid piece can have any length from 1 to maxLength.
 
-The answer is stored using Java's int data type.
+Therefore, dp[i] contributes to the following positions:
 
-An int can store values from -2,147,483,648 to 2,147,483,647.
+dp[i + 1]
+dp[i + 2]
+...
+dp[i + maxLength]
 
-If the number of valid partitions exceeds this range, integer
-overflow can occur. The maximum input constraint must therefore
-be checked before using int for every possible input.
+These contributions count the partitions obtained by adding
+one valid piece to an existing partition.
 
-TIME AND SPACE COMPLEXITY:
+Instead of updating every position individually, the algorithm
+uses a difference array to apply the contribution to an entire
+range efficiently.
 
-Z-Algorithm Time Complexity: O(N)
+After processing all positions, dp[N] contains the total number
+of valid partitions.
 
-Dynamic Programming Time Complexity: O(N)
+TIME COMPLEXITY:
+
+Z-algorithm: O(N)
+
+Dynamic programming with the difference array: O(N)
 
 Total Time Complexity: O(N)
 
 Auxiliary Space Complexity: O(N)
 
+
+============================================================
+COMPARISON OF THE THREE METHODS
+============================================================
+
+1. Brute Force Using Bitmask
+
+Explores every possible arrangement of partition boundaries.
+
+Time Complexity: O(2^N * N)
+Auxiliary Space Complexity: O(1)
+
+2. Brute Force Using Recursion
+
+Tries every valid piece length and recursively explores
+the remaining suffix.
+
+Time Complexity: Exponential in the worst case.
+Auxiliary Space Complexity: O(N)
+
+3. Optimized Z-Algorithm and Dynamic Programming
+
+Uses the Z-array to determine valid piece lengths and dynamic
+programming to count partitions efficiently.
+
+Time Complexity: O(N)
+Auxiliary Space Complexity: O(N)
+
+
+IMPORTANT NOTE ABOUT INTEGER OVERFLOW:
+
+All three methods return int, and the DP array also uses int.
+
+Java int supports values from -2,147,483,648 to 2,147,483,647.
+
+If the number of valid partitions exceeds this range, integer
+overflow may occur.
+
+The input constraints must be checked before relying on int
+for large inputs.
+
+
 CONCLUSION:
 
-The brute-force method explores all possible valid partitions
-using recursion.
+The bitmask method enumerates every possible boundary arrangement.
 
-The optimised method uses the Z-algorithm to determine valid
-piece lengths and dynamic programming to count the partitions.
+The recursive method explores possible partitions through
+recursive choices.
 
-The optimised method avoids exploring every partition separately
-and runs in linear time, provided integer arithmetic remains
-within the supported range.
+Both are brute-force methods because they explore individual
+possibilities rather than reusing previously calculated results.
+
+The optimized method combines the Z-algorithm and dynamic
+programming to calculate the answer in linear time.
+
+For larger inputs, the optimized method is preferable.
 */
