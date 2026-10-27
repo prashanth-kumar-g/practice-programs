@@ -315,9 +315,4 @@ all N^A possible strings.
 
 The optimized method is suitable for larger inputs, provided the answer
 fits within Java's long data type.
-
-The third example assumes the rule is simply to count strings that do
-not contain P as a contiguous substring. Under this interpretation,
-the answer for N = 2, P = "aa", and A = 30 is 2178309.
 */
-
